@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#3.0-beta2'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>Ubuntu系统备份方式记录 - 飞飞杂货铺</title>
+  
+    <meta name="keywords" content="Linux,Ubuntu,备份,系统维护">
+  
+
+  
+    <meta name="description" content="传说中的“有备无患”
+">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  
+</head>
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post' style="display: none;">
+      <div class='cover-body'>
+  <div class='a'>
+    
+      <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN-for-Personalblog@master/pictures_source_file/Logo/logo001@108px.png'/>
+    
+    
+    
+  </div>
+  <div class='b'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="Starting Here" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation search'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header floatable">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>主页
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box" href=/404.html
+                  
+                  
+                  
+                    id="404html"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box" href=/404.html
+                  
+                  
+                  
+                    id="404html"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box" href=/404.html
+                  
+                  
+                  
+                    id="404html"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box" href=/about.html
+                  
+                  
+                  
+                    id="abouthtml"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>主页
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box" href=/404.html
+                  
+                  
+                  
+                    id="404html"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box" href=/404.html
+                  
+                  
+                  
+                    id="404html"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box" href=/404.html
+                  
+                  
+                  
+                    id="404html"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box" href=/about.html
+                  
+                  
+                  
+                    id="abouthtml"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper' id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+
+
+<div id="pjax-data" style="display: none">
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">Ubuntu系统备份方式记录</div>
+  <div id="pjax-enable-cover">true</div>
+  <div id="pjax-permalink">http://yoursite.com/2020/04/04/2020-04-04-backup-method-for-ubuntu/</div>
+  
+  
+</div>
+
+
+<script>
+  // 处理封面 此时 jquery 还没加载
+  if ("none" == "none") { // 移除封面
+    document.getElementsByClassName('cover')[0].style.display = "none";
+    document.getElementsByClassName('l_body')[0].classList.add("nocover");
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
+  } else {
+    if ("none" == "blog") { // 半屏
+      document.getElementsByClassName('cover')[0].classList.remove("full");
+      document.getElementsByClassName('cover')[0].classList.add("half");
+      document.getElementsByClassName('scroll-down')[0].style.display = "none";
+    } else if ("none" == "docs") { // 全屏
+      document.getElementsByClassName('cover')[0].classList.remove("half");
+      document.getElementsByClassName('cover')[0].classList.add("full");
+      document.getElementsByClassName('scroll-down')[0].style.display = "";
+    }
+    document.getElementsByClassName('cover')[0].style.display = "";
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover");
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show");
+  }
+</script>
+
+      
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/04/04/2020-04-04-backup-method-for-ubuntu/">
+      Ubuntu系统备份方式记录
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>浅梦未央</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Apr 4, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>传说中的“有备无患”</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.0/200404/artical_200404_cover.png"><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.0/200404/artical_200404_cover.png" alt="img"></a></p>
+<a id="more"></a>
+
+<p>先秦·左丘明《左传·襄公十一年》：“《书》曰：“居安思危。思则有备，有备则无患。”</p>
+<p>在使用Ubuntu系统的过程中，由于系统的可定制性太高，以至于在使用系统的过程中容易对系统造成一些损坏或者错误的设置(?)。在遇到一些无法修复的系统问题时，往往会选择重装系统，可是重装系统以后，所有的软件、系统设置、美化设置全部都要重新来一遍</p>
+<p>不想重装系统的话，还有一种办法就是对系统进行备份，经常性地对系统进行备份也可以避免重装系统后重新做系统的所有设置</p>
+<h2 id="分清楚硬盘分区情况"><a href="#分清楚硬盘分区情况" class="headerlink" title="分清楚硬盘分区情况"></a>分清楚硬盘分区情况</h2><p>在对分区进行备份之前，首先我们要搞清楚Ubuntu备份的操作做了什么</p>
+<p>Linux系统的特点是不对文件和目录(文件夹)进行区分，文件是文件，目录也是文件，所以我们可以对整个分区进行压缩打包，打包成一个独立的文件存放在硬盘上的某个地方，在需要还原的时候再见这个压缩包解压覆盖到相对应的分区位置即可</p>
+<p>因为这种备份操作的特性，所以我们需要先搞清楚自己硬盘的分区情况，对每个分区进行独立的备份</p>
+<p>在安装Ubuntu系统的时候，所有用户都会经过分区的操作，此时系统会决定哪些目录会占用独立的分区，我们首先要通过各种方法拿到这种分区划分</p>
+<h4 id="通过任务管理器查看"><a href="#通过任务管理器查看" class="headerlink" title="通过任务管理器查看"></a>通过任务管理器查看</h4><p>这是最直接最快捷的方法，适用于一切用户，即使你完全不会使用终端命令</p>
+<p>在应用中心打开系统监视器，切换到<code>File Systems</code>，即可查看所有挂载的文件分区</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/System_Monitor.png"><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/System_Monitor.png" alt="file systems"></a></p>
+<p>举个例子，上图是作者机器上的系统监视器给出的信息，从中我们可以看出作者的机器上一共挂载3种分区</p>
+<blockquote>
+<ul>
+<li>系统引导分区 分区类型是vfat，在Windows下是fat32</li>
+<li>Linux分区    分区类型是ext2/ext3/ext4，在Windows下一般不可见(笑</li>
+<li>其他数据分区 分区类型是fuseblk，在Windows下是ntfs</li>
+</ul>
+</blockquote>
+<p>我们需要备份的是几个在Windows下不可见的Linux分区，在这个例子中也就是</p>
+<blockquote>
+<ul>
+<li>/      根分区，挂在位置在sda7</li>
+<li>/boot  启动分区，挂载位置在sda6</li>
+<li>/home 主分区，挂载位置在sdc5</li>
+</ul>
+</blockquote>
+<h4 id="通过系统自带的硬盘工具查看"><a href="#通过系统自带的硬盘工具查看" class="headerlink" title="通过系统自带的硬盘工具查看"></a>通过系统自带的硬盘工具查看</h4><p>当然了，条条大路通罗马，除了使用系统监视器以外，我们也可以使用Ubuntu系统自带的硬盘工具查看分区情况；不过这个工具隐藏的位置比较深入，在应用中心中有一个<code>Utilities</code>文件夹，在这个文件夹中可以找到<code>Disk</code>工具</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/disk.png" alt="disk"></p>
+<p>从作者机器上这个工具的截图看，当前选中的分区位于第一块硬盘（sda，一块240G的固态硬盘）的末尾，分区挂载在dev/sda7，以根分区文件系统的形式挂载(Filesystem Root)</p>
+<p>这个工具给出的信息比较多，当然对新手也更不友好，不过毕竟是图形界面，到处看看还是能看出点门道来的</p>
+<h4 id="通过fstab文件查看"><a href="#通过fstab文件查看" class="headerlink" title="通过fstab文件查看"></a>通过fstab文件查看</h4><p>在Ubuntu系统中，如果想要开机自动挂载某个分区，则需要在fstab文件中写出该分区在硬盘上的位置、想要挂载到的位置，挂载形式，开机是否进行自动检查等参数，Linux分区的挂载同样需要这个文件，我们可以通过这个文件看出我们所需要的信息</p>
+<p>在终端中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+
+<p>fstab文件属于系统文件，需要超级用户权限才能修改，如果需要修改，需要在命令前面添加sudo前缀临时获得权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+
+<p>警示！！！不建议在没有备份的情况下修改fstab文件的内容，Ubuntu系统在开机时如果挂载到了错误的分区，会直接进入Recovery模式，无法正常开机，需要修改成正确的fstab文件才能开机</p>
+<p>备份fstab文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;fstab &#x2F;etc&#x2F;fstab.back</span><br></pre></td></tr></table></figure>
+
+<p>fstab文件内容如下</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/fstab.png"><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/fstab.png" alt="fstab"></a></p>
+<p>从fstab文件中我们可以得到与系统监视器一样的结论，不过开机后再挂载的移动设备不会包含在fstab文件中</p>
+<h4 id="使用终端命令查看"><a href="#使用终端命令查看" class="headerlink" title="使用终端命令查看"></a>使用终端命令查看</h4><p>最后一种方法，怎么能少得了万能的命令行呢，只给图形界面的操作方法，你瞧谁不起呢！</p>
+<p>在Ubuntu终端中查看分区信息有多少种方法，这里只介绍最常用的一种，使用<code>fdisk</code>命令查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>命令行会输出一大堆信息，其中会有我们所需要的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">Disk &#x2F;dev&#x2F;sda: 223.6 GiB, 240057409536 bytes, 468862128 sectors</span><br><span class="line">Units: sectors of 1 * 512 &#x3D; 512 bytes</span><br><span class="line">Sector size (logical&#x2F;physical): 512 bytes &#x2F; 512 bytes</span><br><span class="line">I&#x2F;O size (minimum&#x2F;optimal): 512 bytes &#x2F; 512 bytes</span><br><span class="line">Disklabel type: gpt</span><br><span class="line">Disk identifier: 0F20B151-2873-439C-845D-E38042C81A30</span><br><span class="line"></span><br><span class="line">Device         Start       End   Sectors   Size Type</span><br><span class="line">&#x2F;dev&#x2F;sda1       2048   1023999   1021952   499M Windows recovery environment</span><br><span class="line">&#x2F;dev&#x2F;sda2    1024000   1228799    204800   100M EFI System</span><br><span class="line">&#x2F;dev&#x2F;sda3    1228800   1261567     32768    16M Microsoft reserved</span><br><span class="line">&#x2F;dev&#x2F;sda4    1261568 247818695 246557128 117.6G Microsoft basic data</span><br><span class="line">&#x2F;dev&#x2F;sda5  247818696 249571327   1752632 855.8M Windows recovery environment</span><br><span class="line">&#x2F;dev&#x2F;sda6  249571328 253571071   3999744   1.9G Linux filesystem</span><br><span class="line">&#x2F;dev&#x2F;sda7  253571072 468860927 215289856 102.7G Linux filesystem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk &#x2F;dev&#x2F;sdb: 3.7 TiB, 4000787030016 bytes, 7814037168 sectors</span><br><span class="line">Units: sectors of 1 * 512 &#x3D; 512 bytes</span><br><span class="line">Sector size (logical&#x2F;physical): 512 bytes &#x2F; 512 bytes</span><br><span class="line">I&#x2F;O size (minimum&#x2F;optimal): 4096 bytes &#x2F; 33553920 bytes</span><br><span class="line">Disklabel type: gpt</span><br><span class="line">Disk identifier: 0CFA0E31-5858-9090-8081-828310111213</span><br><span class="line"></span><br><span class="line">Device     Start        End    Sectors  Size Type</span><br><span class="line">&#x2F;dev&#x2F;sdb1   2048 7814031231 7814029184  3.7T Microsoft basic data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk &#x2F;dev&#x2F;sdc: 931.5 GiB, 1000204886016 bytes, 1953525168 sectors</span><br><span class="line">Units: sectors of 1 * 512 &#x3D; 512 bytes</span><br><span class="line">Sector size (logical&#x2F;physical): 512 bytes &#x2F; 4096 bytes</span><br><span class="line">I&#x2F;O size (minimum&#x2F;optimal): 4096 bytes &#x2F; 4096 bytes</span><br><span class="line">Disklabel type: gpt</span><br><span class="line">Disk identifier: 0C5204A1-5858-9090-8081-828310111213</span><br><span class="line"></span><br><span class="line">Device          Start        End   Sectors   Size Type</span><br><span class="line">&#x2F;dev&#x2F;sdc1   252268696 1075230519 822961824 392.4G Microsoft basic data</span><br><span class="line">&#x2F;dev&#x2F;sdc2  1075230520 1411679744 336449225 160.4G Microsoft basic data</span><br><span class="line">&#x2F;dev&#x2F;sdc3  1411679808 1726328840 314649033   150G Microsoft basic data</span><br><span class="line">&#x2F;dev&#x2F;sdc4  1726328904 1953519137 227190234 108.3G Microsoft basic data</span><br><span class="line">&#x2F;dev&#x2F;sdc5        2048  236267519 236265472 112.7G Linux filesystem</span><br><span class="line">&#x2F;dev&#x2F;sdc6   236267520  252268543  16001024   7.6G Linux swap</span><br></pre></td></tr></table></figure>
+
+<p>我们只需要看<code>type</code>是<code>Linux filesystem</code>的分区即可，通过上面的信息和分区大小的匹配，可以得出与系统监视器相同的结论</p>
+<p>通过条条大路到达罗马后，我们可以得出结论，需要备份的Linux分区有以下三个</p>
+<blockquote>
+<ul>
+<li>/      根分区，挂在位置在sda7，大小是45.0GB</li>
+<li>/boot  启动分区，挂载位置在sda6，大小是125.5MB</li>
+<li>/home 主分区，挂载位置在sdc5，大小是42.4GB</li>
+</ul>
+</blockquote>
+<h2 id="打包命令的使用"><a href="#打包命令的使用" class="headerlink" title="打包命令的使用"></a>打包命令的使用</h2><p>在Ubuntu下，可使用<code>tar</code>命令对文件和目录创建打包档案。利用这一命令，可以为某一个文件创建档案，也可以将一大堆文件和目录全部打包成一个文件，用户也随时可以向档案中增添或删减文件，这对于档案的储存和管理是非常有用的</p>
+<p>可能有细心的读者会发现这其中有一些细微的差别：<code>tar</code>命令只是打包操作，打包操作是不包含压缩这个选项的。没错，打包和压缩是文件管理中分立的两个概念</p>
+<blockquote>
+<ul>
+<li>打包是将一堆文件和目录变成一个总的文件</li>
+<li>压缩是将一个大文件通过压缩算法变成一个小文件</li>
+</ul>
+</blockquote>
+<p>为什么要区分这两个概念呢，这源于Linux下的很多压缩程序并不具备打包的功能，他们只能操作单独的文件，所以如果要进行压缩打包，要先使用<code>tar</code>指令打包，再使用<code>gzip</code>或<code>gzip2</code>指令进行压缩</p>
+<p><code>tar</code>命令的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar [required para][optional para][files or directory]</span><br></pre></td></tr></table></figure>
+
+<p>参数含义</p>
+<p>必要参数(required para)</p>
+<p>-A   新增压缩文件到已存在的压缩<br>-B   设置区块大小<br>-c   建立新的压缩文件<br>-d   记录文件的差别<br>-r    加文件到已经压缩的文件<br>-u   添加改变了和现有的文件到已经存在的压缩文件<br>-x   从压缩的文件中提取文件<br>-t   显示压缩文件的内容<br>-z   使用gzip压缩文件，减少占用空间<br>-j   使用bzip2压缩文件，减少占用空间<br>-Z   支持compress解压文件<br>-v   显示操作过程<br>-l   文件系统边界设置<br>-k   保留原有文件不覆盖<br>-m   保留文件不被覆盖<br>-W   确认压缩文件的正确性<br>-p   用原来的文件权限还原文件</p>
+<p>可选参数(optional para)</p>
+<p>-b   设置区块数目<br>-C   切换到指定目录<br>-f   指定压缩文件(带路径)，只能作为最后一个参数<br>–help   显示帮助信息<br>–version   显示版本信息<br>–exclude   排除指定目录，不进行备份</p>
+<h2 id="进行备份前准备"><a href="#进行备份前准备" class="headerlink" title="进行备份前准备"></a>进行备份前准备</h2><p>备份前需要对系统进行必要的瘦身，因为我们是备份整个系统，所以备份一些不必要的内容会增加空间占用</p>
+<p>删除旧版本软件缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoclean</span><br></pre></td></tr></table></figure>
+
+<p>清除所有软件缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get clean</span><br></pre></td></tr></table></figure>
+
+<p>清除系统中不再使用的孤立软件(慎用，有可能会将一些依赖删除)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
+
+<h2 id="开始备份"><a href="#开始备份" class="headerlink" title="开始备份"></a>开始备份</h2><p>准备工作的最后一步，我们需要寻找一个合适的备份介质，首先这个介质需要有足够大的剩余空间，能够放下整个分区的文件；其次这个位置需要比较安全，而且重装系统的过程中不能被覆盖</p>
+<p>建议放在大容量的机械硬盘分区里面或者外置的储存设备，作者使用的就是由机械硬盘盒和台式机机械硬盘组成的外置储存设备</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/disk_table.png" alt="disk table"></p>
+<p>首先 打开终端(笑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+Shift+T</span><br></pre></td></tr></table></figure>
+
+<p>切换到root用户，避免权限问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果是第一次使用root用户的话，需要先设置root账户密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
+
+<p>根据提示设置密码并确认密码后，可以登陆root账户</p>
+<p>再切换到 / 根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>备份系统命令，此处以备份 / 分区为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar cpzf &#x2F;media&#x2F;sunshine&#x2F;0CFB19510CFB1951&#x2F;Backup&#x2F;ubuntu_backup&#x2F;ubuntu_back_20200309_2031.tgz --exclude&#x3D;&#x2F;proc --exclude&#x3D;-lost+found --exclude&#x3D;&#x2F;media --exclude&#x3D;&#x2F;mnt --exclude&#x3D;&#x2F;home  --exclude&#x3D;&#x2F;boot --exclude&#x3D;run --exclude&#x3D;tmp &#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>分析一下这个命令</p>
+<h5 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar cpz</span><br></pre></td></tr></table></figure>
+
+<p><code>tar</code>命令和必要参数</p>
+<blockquote>
+<p>c   新建一个备份文档<br>p   保存权限，并应用到所有文件<br>z   使用gzip压缩备份文档，减少占用空间</p>
+</blockquote>
+<h5 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f &#x2F;media&#x2F;sunshine&#x2F;0CFB19510CFB1951&#x2F;Backup&#x2F;ubuntu_backup&#x2F;ubuntu_root_backup@&#96;date +%Y-%m-%d&#96;.tgz</span><br></pre></td></tr></table></figure>
+
+<p>可选参数和指定备份文件的目的路径</p>
+<blockquote>
+<p>f   指定压缩包名称，只能做最后一个参数，后面接文件路径</p>
+</blockquote>
+<p>文件路径填你的目的路径和压缩包文件名，注意文件后缀是<code>.tgz</code></p>
+<p>为了区分不同备份版本，在这条命令中还使用<code>date +%Y-%m-%d</code>命令，调用系统时间作为备份文件的一部分</p>
+<p>在3月31日使用该命令时，最终的备份文件名字为<code>ubuntu_root_backup@2020-03-31.tgz</code></p>
+<h5 id="第三部分"><a href="#第三部分" class="headerlink" title="第三部分"></a>第三部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--exclude&#x3D;&#x2F;proc --exclude&#x3D;&#x2F;lost+found --exclude&#x3D;&#x2F;media --exclude&#x3D;&#x2F;mnt --exclude&#x3D;&#x2F;tmp --exclude&#x3D;&#x2F;run --exclude&#x3D;&#x2F;home --exclude&#x3D;&#x2F;boot</span><br></pre></td></tr></table></figure>
+
+<p>这里就是使用<code>--exclude</code>参数排除不想备份的文件夹，下面详细说明一下建议排除的文件夹以及他们的作用</p>
+<p>/proc        虚拟文件系统，系统运行的每一个进程都会自动在这个目录下面创建一个进程目录。既然是系统自动创建，也就没必要备份的必要了<br>/lost+found   系统发生错误时（比如非法关机），可以在这里找回一些丢失文件<br>/media      多媒体挂载点，像u盘、移动硬盘、机械硬盘上的其他数据分区等都会默认挂载到这个目录下，当然了，用户也可能会自定<br>/mnt        临时挂载点，你可以自己挂载一些文件系统到这里<br>/tmp        临时文件夹，系统的一些临时文件会放在这里<br>/run        系统从启动以来产生的一些信息文件<br>/boot       和系统启动相关的文件，像grub相关文件都放在这里，这个目录很重要<br>/home      用户主目录，存放用户个人文件和应用程序</p>
+<h5 id="第四部分"><a href="#第四部分" class="headerlink" title="第四部分"></a>第四部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>这是你希望备份的目录，在这个例子中是根分区</p>
+<p>一些提示</p>
+<p>以下是几点提示，这几点比较重要，如果忽视则可能导致一些奇怪的错误发生，或是达不到我们需要的备份效果</p>
+<ul>
+<li>/mmt目录需要排除在外。如果不把/mnt目录排除在外，挂载在/mnt目录上的其他分区也会被备份</li>
+<li>/media目录需要排除在外。如果不把/media目录排除在外，挂载在/media目录上的其他分区，比如外置的存储设备也会被备份</li>
+<li>任何挂载其他存储设备的目录都需要被排除在外。举例来说，作者的Ubuntu系统中，来自机械硬盘的<code>ntfs</code>数据分区会在开机时自动以<code>fuseblk</code>格式挂载到<code>/home/用户名/Media/</code>中，所以在备份<code>/home</code>目录时，需要排除<code>/Meia</code>目录，否则会将里面挂载的整个机械硬盘的数据备份一遍</li>
+<li>切记要排除备份的目的文件本身所在的目录。如上面的例子中，备份文件<code>ubuntu_root_backup@2020-03-31.tgz</code>所在的目录一定要排除，否则会变成我备份我自己，可能会得到一些超出常理的备份结果，嘻嘻</li>
+</ul>
+<h2 id="还原系统"><a href="#还原系统" class="headerlink" title="还原系统"></a>还原系统</h2><p>备份完之后，万一有一天系统崩溃了，我们需要恢复系统，这时可以通过Ubuntu系统的安装U盘(Lived USB)进入<code>try Ubuntu</code>模式</p>
+<p><code>tar</code>还原只能覆盖原有存在的文件，即增量还原的概念</p>
+<p>假设备份系统时计算机中有<code>1234</code>这四个文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/orgin.png"></p>
+<p>需要还原系统时，计算机中的文件状态已经变成<code>1234</code>5678`，文件4由于一些原因发生了改变，新增了文件5678</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.1/200404/change.png"></p>
+<p>此时若直接使用<code>tar</code>覆盖还原的方式，则计算机中的文件会变为<code>12345678</code>,文件4`被备份存档中的文件4替代，文件5678保留</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Sunshine-0215/CDN_Personalblog_202001@4.0/200404/after.png"></p>
+<p>当然这种情况对于日常使用的文档文件是没有问题的，如果仅对于文档备份则当然可以这么做，但对于包含程序包的备份存档，则会因为依赖变化等问题出现一些错误，所以不建议大家在系统备份中使用覆盖还原</p>
+<p>切换到<code>root</code>用户，找到旧Ubuntu系统的根分区所在分区，一般来说，可以在Ubuntu系统的<code>/media</code>目录下面找到，使用<code>rm -rf</code>指令删除整个分区中的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf &#x2F;media&#x2F;磁盘名称&#x2F;分区名称</span><br></pre></td></tr></table></figure>
+
+<p>先创建一个临时目录用于挂载原系统的文件系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;mnt&#x2F;origin&#x2F;sys</span><br></pre></td></tr></table></figure>
+
+<p>将原系统文件系统挂载到临时目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;分区 &#x2F;mnt&#x2F;origin&#x2F;sys</span><br></pre></td></tr></table></figure>
+
+<p>在临时目录中解压备份档案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvpzf &#x2F;media&#x2F;myDisk&#x2F;ubuntu_root_backup@xxxx.tar.gz -C &#x2F;mnt&#x2F;sys</span><br></pre></td></tr></table></figure>
+
+<p>解压完成后，记得要将备份时使用<code>--exclude</code>指令排除在外的目录重新创建，否则重启系统后会遇到错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;mnt&#x2F;sys</span><br><span class="line">mkdir proc lost+found media mnt  run tmp</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>/home</code>目录和<code>/boot</code>目录在这个例子中由于是在另外的分区，删除时不会被覆盖，所以我们也不需要重新创建这两个目录</p>
+<p>警示！！！如果在恢复系统的过程中，您修改了硬盘的分区，，各个分区的UUID发生了改变，那么重启系统前一定要根据各个分区的信息重新修改<code>/etc/fstab</code>文件，否则不能开机</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>系统的备份和还原操作对应于每个人的计算机状况不同，受限于分区情况、存储介质挂载情况、使用习惯不相同等差异，有很多种不同的方式方法和解决方案，切不可因循守旧，墨守成规，要根据自身的情况灵活判断和改变</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://yoursite.com/2020/04/04/2020-04-04-backup-method-for-ubuntu/>http://yoursite.com/2020/04/04/2020-04-04-backup-method-for-ubuntu/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-22T16:47:30+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Aug 22, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Ubuntu/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Ubuntu</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%87%E4%BB%BD/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>备份</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%B3%BB%E7%BB%9F%E7%BB%B4%E6%8A%A4/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>系统维护</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/04/04/2020-04-04-backup-method-for-ubuntu/&title=Ubuntu系统备份方式记录 - 飞飞杂货铺&summary=传说中的“有备无患”
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/04/04/2020-04-04-backup-method-for-ubuntu/&title=Ubuntu系统备份方式记录 - 飞飞杂货铺&summary=传说中的“有备无患”
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/04/04/2020-04-04-backup-method-for-ubuntu/&title=Ubuntu系统备份方式记录 - 飞飞杂货铺&summary=传说中的“有备无患”
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=http://yoursite.com/2020/04/04/2020-04-04-backup-method-for-ubuntu/&text=Ubuntu系统备份方式记录 - 飞飞杂货铺"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/04/18/2020-04-18-Ori-and-the-Blind-Forest/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>2020-04-18-Ori-and-the-Blind-Forest</p>
+                <p class='content'>不是所有游戏都能被称为第九艺术，甚至，第九艺术的下一代可能也不是
+Ori and the Will of the Wisps，中文译名《奥日与黑暗森林》，由Moon-Studio负责开发，微软工...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/03/21/2020-03-21-useful-command-collect-for-ubuntu_2/'>
+                <p class='title'>Ubuntu常用命令总结之二：系统信息、磁盘操作、用户权限操作、压缩操作<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>养兵千日&nbsp;&nbsp;用兵一时
+
+
+
+在使用Ubuntu系统的过程中，经常需要使用一些系统命令，Linux系发行版的最大特点也是在使用这些系统的时候，适当使用一些命令可以极大地增加使用...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="gitalk-container"></div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%B8%85%E6%A5%9A%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA%E6%83%85%E5%86%B5"><span class="toc-text">分清楚硬盘分区情况</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8%E6%9F%A5%E7%9C%8B"><span class="toc-text">通过任务管理器查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E7%9A%84%E7%A1%AC%E7%9B%98%E5%B7%A5%E5%85%B7%E6%9F%A5%E7%9C%8B"><span class="toc-text">通过系统自带的硬盘工具查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87fstab%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B"><span class="toc-text">通过fstab文件查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8B"><span class="toc-text">使用终端命令查看</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">打包命令的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E8%A1%8C%E5%A4%87%E4%BB%BD%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-text">进行备份前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%A4%87%E4%BB%BD"><span class="toc-text">开始备份</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86"><span class="toc-text">第一部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86"><span class="toc-text">第二部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86"><span class="toc-text">第三部分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86"><span class="toc-text">第四部分</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E5%8E%9F%E7%B3%BB%E7%BB%9F"><span class="toc-text">还原系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget grid shadow desktop mobile">
+  
+  <header>
+    
+      <i class="fas fa-sign fa-fw" aria-hidden="true"></i><span class='name'>站内导航</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="grid navigation fixed">
+      
+        <a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a>
+      
+        <a class="flat-box" title="/404.html" href="/404.html"
+          
+            rel="nofollow"
+          
+          
+          id="404html">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a>
+      
+        <a class="flat-box" title="/404.html" href="/404.html"
+          
+            rel="nofollow"
+          
+          
+          id="404html">
+          
+            <i class="fas fas fa-cloud-download-alt fa-fw" aria-hidden="true"></i>
+          
+          下载管理
+        </a>
+      
+        <a class="flat-box" title="/1970/01/01/000000-update-plan-collect/index.html" href="/1970/01/01/000000-update-plan-collect/index.html"
+          
+            rel="nofollow"
+          
+          
+          id="19700101000000-update-plan-collectindexhtml">
+          
+            <i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i>
+          
+          更新计划
+        </a>
+      
+        <a class="flat-box" title="/404.html" href="/404.html"
+          
+            rel="nofollow"
+          
+          
+          id="404html">
+          
+            <i class="fas fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i>
+          
+          访问统计
+        </a>
+      
+        <a class="flat-box" title="/about.html" href="/about.html"
+          
+            rel="nofollow"
+          
+          
+          id="abouthtml">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a>
+      
+    </div>
+  </div>
+</section>
+
+  
+
+
+</aside>
+
+
+
+    </div>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='tencent'
+      type='playlist'
+      id='7507044948'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="https://github.com/Sunshine-0215"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:sunshine021599@gmail.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=424194725"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://www.zhihu.com/people/qian-meng-wei-yang-87-60"
+                class="social fab fa-zhihu flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://space.bilibili.com/199206501"
+                class="social fab fa-bootstrap flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright 浅梦未央 © 2020</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
+          onclick="document.execCommand('copy')"
+        
+        
+          id="menu-copy-text"
+        >
+        <i class='fa fa-copy fa-fw'></i> 复制文本
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
+        
+          id="menu-copy-src"
+        >
+        <i class='fa fa-image fa-fw'></i> 复制图片地址
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
+        
+          id="menu-copy-href"
+        >
+        <i class='fa fa-link fa-fw'></i> 复制链接
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
+        
+          id="menu-open-new"
+        >
+        <i class='fa fa-external-link-square-alt fa-fw'></i> 在新标签页打开
+      </a>
+    </li>
+  
+        
+      
+        
+          <li class='navigation'>
+            <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+          </li>
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      // 选中文本
+      if (window.getSelection().toString()) {
+        document.getElementById('menu-copy-text').style.display = 'block';
+      } else {
+        document.getElementById('menu-copy-text').style.display = 'none';
+      }
+
+      // 选中图片
+      if (event.target.currentSrc) {
+        document.getElementById('menu-copy-src').style.display = 'block';
+        document.getElementById('menu-copy-src').addEventListener("click", function (e) {
+          copyString(event.target.currentSrc);
+        },{once: true});
+      } else {
+        document.getElementById('menu-copy-src').style.display = 'none';
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+      if (href.length > 0) {
+        // 在新标签页打开
+        let openNew = document.getElementById('menu-open-new');
+        if (openNew != undefined) {
+          openNew.style.display = 'block';
+          openNew.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+        }
+        // 复制链接
+        let copyHref = document.getElementById('menu-copy-href');
+        if (copyHref != undefined) {
+          if (href.length > 0) {
+            copyHref.style.display = 'block';
+          } else {
+            copyHref.style.display = 'none';
+          }
+        }
+      } else {
+        let openNew = document.getElementById('menu-open-new');
+        if (openNew != undefined) {
+          openNew.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://i.loli.net/2020/08/19/D3wcouJNmgXeaqQ.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '7507044948';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.7';
+  </script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+    
+<script src="/js/aplayer.js"></script>
+
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function pjax_gitalk() {
+    console.log(document.getElementById('gitalk-container'));
+    if (document.getElementById('gitalk-container') != null) {
+      var gitalk = new Gitalk({
+        clientID: "3834d471f8d5bcc2124c",
+        clientSecret: "65eba0180c59c88aaeada1446ed6e55e73ed1861",
+        repo: "Sunshine-0215.github.io",
+        owner: "",
+        admin: "",
+        
+          id: decodeURI(location.pathname),      // Ensure uniqueness and length less than 50
+        
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      });
+      gitalk.render('gitalk-container');
+    }
+  }
+
+  $(function () {
+    pjax_gitalk();
+  });
+</script>
+
+
+
+
+<!-- darkmodejs -->
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+<!-- scrollreveal -->
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+
+    <!-- 浏览器搞笑标题-->
+    <script type="text/javascript" src="/js/funnytitle.js"></script>
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.nav-main').find('.list-v').not('.menu-phone').css("display","none"); // 移除小尾巴
+      $('.menu-phone.list-v').css("display","none"); // 移除小尾巴
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      $('.s-top').unbind('click');   // 解绑
+      $('.menu a').unbind('click');  // 解绑
+      $(window).unbind('resize');    // 解绑
+      $(window).unbind('scroll');    // 解绑
+      $(document).unbind('scroll');  // 解绑
+      $(document).unbind('click');   // 解绑
+      $('body').unbind('click');     // 解绑
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('') {
+            $('').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+        
+        
+          pjax_gitalk();
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":true,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":0,"vOffset":50},"mobile":{"show":true},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>
